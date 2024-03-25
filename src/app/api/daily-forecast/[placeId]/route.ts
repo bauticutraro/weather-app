@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { ExternalAPI } from './types'
 import { DailyForecast } from '@src/types/daily-forecast'
 import { mapDailyForecast } from '@src/utils/mappers/daily-forecast'
+import { LANG, UNITS } from '@src/constants/weather-params'
 
 type Params = {
   placeId: string
@@ -21,7 +22,7 @@ export async function GET(
     throw new Error('Missing Api Key')
   }
 
-  const url = `${process.env.WEATHER_API}/daily?place_id=${placeId}&language=en&units=metric`
+  const url = `${process.env.WEATHER_API}/daily?place_id=${placeId}&language=${LANG}&units=${UNITS}`
   const options = {
     method: 'GET',
     headers: {

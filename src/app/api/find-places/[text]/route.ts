@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { ExternalAPI } from './types'
 import { Places } from '@src/types/place'
 import { mapPlaces } from '@src/utils/mappers/places'
+import { LANG } from '@src/constants/weather-params'
 
 type Params = {
   text: string
@@ -18,7 +19,7 @@ export async function GET(request: Request, context: { params: Params }): Promis
     throw new Error('Missing Api Key')
   }
 
-  const url = `${process.env.WEATHER_API}/find_places?text=${text}&language=en`
+  const url = `${process.env.WEATHER_API}/find_places?text=${text}&language=${LANG}`
   const options = {
     method: 'GET',
     headers: {

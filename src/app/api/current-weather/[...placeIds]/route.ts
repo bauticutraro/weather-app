@@ -5,6 +5,7 @@ import { ExternalAPI } from './types'
 import { ExternalAPI as FindPlacesExternalAPI } from '../../find-places/[text]/types'
 import { mapPlaces } from '../../../../utils/mappers/places'
 import { Place } from '@src/types/place'
+import { LANG, UNITS } from '@src/constants/weather-params'
 
 type Params = {
   placeIds: string[]
@@ -12,8 +13,8 @@ type Params = {
 
 const getCurrentWeather = async (placeId: string, apiKey: string): Promise<NextResponse<CurrentWeather>> => {
   try {
-    const url = `${process.env.WEATHER_API}/current?place_id=${placeId}&language=en&units=metric`
-    const findPlaceUrl = `${process.env.WEATHER_API}/find_places?text=${placeId}&language=en`
+    const url = `${process.env.WEATHER_API}/current?place_id=${placeId}&language=${LANG}&units=${UNITS}`
+    const findPlaceUrl = `${process.env.WEATHER_API}/find_places?text=${placeId}&language=${LANG}`
     const options = {
       method: 'GET',
       headers: {

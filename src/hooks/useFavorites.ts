@@ -1,6 +1,7 @@
 import { getCurrentWeather } from '@src/services/get-current-weather'
 import { useLocalStorage } from './useLocalStorage'
 import { CurrentWeather } from '@src/types/current-weather'
+import { useSnackbar } from '@src/context/snackbar-context'
 
 export const useFavorites = (): {
   toggleFavorite: (placeId: string) => void
@@ -9,6 +10,7 @@ export const useFavorites = (): {
   favoritesIds: string[]
 } => {
   const [favorites, setFavorites] = useLocalStorage<string[]>('favorites', [])
+  const { showSnackbar } = useSnackbar()
 
   const toggleFavorite = (placeId: string) => {
     const newFavorites = favorites.includes(placeId)
@@ -26,6 +28,7 @@ export const useFavorites = (): {
       return favoritesCurrentWeather
     } catch (error) {
       console.error('Error getting favorites', error)
+      showSnackbar('Error getting favorites')
       return []
     }
   }
