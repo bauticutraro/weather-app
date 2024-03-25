@@ -30,6 +30,11 @@ export async function GET(request: Request, context: { params: Params }): Promis
 
   try {
     const result: ExternalAPI.Places = await fetch(url, options).then(response => response.json())
+
+    if (!result?.length) {
+      throw new Error('Places not found')
+    }
+
     return NextResponse.json(mapPlaces(result))
   } catch (error) {
     throw error

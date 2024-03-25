@@ -26,10 +26,20 @@ const getCurrentWeather = async (placeId: string, apiKey: string): Promise<NextR
     const placesResult: FindPlacesExternalAPI.Places = await fetch(findPlaceUrl, options).then(response =>
       response.json()
     )
+
+    if (!placesResult.length) {
+      throw new Error('Place not found')
+    }
+
     const placeData = placesResult.find(place => place.place_id === placeId)
     const mappedPlaceData: Partial<Place> = placeData ? mapPlaces([placeData])[0] : {}
 
     const result: ExternalAPI.CurrentWeather = await fetch(url, options).then(response => response.json())
+
+    if (!result?.current) {
+      throw new Error('Current weather not found')
+    }
+
     return NextResponse.json(mapCurrentWeather({ ...result, ...mappedPlaceData }, placeId))
   } catch (error) {
     throw error

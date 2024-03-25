@@ -39,7 +39,7 @@ const AutocompleteTextField: React.FC<Props> = ({
       PaperComponent={({ children }) => {
         if (!inputValue) return null
         return (
-          <Paper elevation={0} sx={{ mt: 2 }}>
+          <Paper elevation={1} sx={{ mt: 2 }}>
             {children}
           </Paper>
         )

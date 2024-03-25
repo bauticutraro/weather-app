@@ -2,7 +2,7 @@ import { ExternalAPI } from '@src/app/api/find-places/[text]/types'
 import { Places } from '@src/types/place'
 
 export const mapPlaces = (places: ExternalAPI.Places): Places => {
-  return places.map(place => {
+  return places?.map(place => {
     const { name, adm_area1, adm_area2, country } = place
 
     return {

@@ -33,6 +33,11 @@ export async function GET(
 
   try {
     const result: ExternalAPI.DailyForecast = await fetch(url, options).then(response => response.json())
+
+    if (!result?.daily) {
+      throw new Error('Daily forecast not found')
+    }
+
     return NextResponse.json(mapDailyForecast(result))
   } catch (error) {
     throw error

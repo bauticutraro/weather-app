@@ -32,7 +32,7 @@ const FavoritesList = () => {
   if (!favoritesList.length) {
     return (
       <Typography variant="body1" align="center" sx={{ mt: 30 }}>
-        No favorites yet
+        No cities added to favorites
       </Typography>
     )
   }

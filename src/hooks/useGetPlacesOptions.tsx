@@ -37,6 +37,7 @@ export const useGetPlacesOptions = (inputValue: string) => {
 
     if (debouncedInputValue) setNewOptions(debouncedInputValue)
     else setOptions([])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedInputValue])
 
   return {

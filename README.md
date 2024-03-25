@@ -1,37 +1,110 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Weather App
 
-## Getting Started
+This is a solution to the Weather App challenge using AI Weather by Meteosource API from [Rapid Api](https://rapidapi.com/hub)
 
-First, run the development server:
+## Table of contents
+
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Get your API key](#get-your-api-key)
+  - [Running the project](#running-the-project)
+- [Author](#author)
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- Search for a city and see the weather information
+- See the current weather and the forecast for the next 5 days on details page
+- Add and remove cities from the favorites list
+
+### Links
+
+- Live Site URL: [Weather App Live Site](https://weather-app-bcutraro.vercel.app/)
+
+## My process
+
+### Built with
+
+- [Next.js 14](https://nextjs.org/docs)
+- [Typescript](https://www.typescriptlang.org/docs/)
+- [Material UI](https://mui.com/material-ui/getting-started/)
+- [ESLint](https://eslint.org/docs/latest/)
+- [Prettier](https://prettier.io/docs/en/index.html)
+
+### Get your API key 
+Get your API key from [Rapid Api](https://rapidapi.com/hub) to use the AI Weather by Meteosource API
+
+- Create an account on [Rapid Api Sign Up](https://rapidapi.com/auth/sign-up)
+  - You will have to verify your email
+  - You will have to complete your profile
+- Go to [AI Weather by Meteosource API Rapid Api](https://rapidapi.com/MeteosourceWeather/api/ai-weather-by-meteosource/)
+  - Click on `Pricing` and choose the free plan (only 100 requests per month)
+  - Go back to [endpoints](https://rapidapi.com/MeteosourceWeather/api/ai-weather-by-meteosource/)
+  - After select an endpoint, you will see the `X-RapidAPI-Key` key on Header Parameters
+&nbsp;
+![Rapid Api Headers](/public/static/images/rapid-api-headers.png)
+&nbsp;
+  - Copy the key and save it for the next step
+
+### Running the project
+
+The first step is install Node.js. It should be version 18.17 or higher. If you don't have it, you can download it from the official website
+
+- [Click here to download Node.js](https://nodejs.org)
+<br/>
+
+##### Installation
+
+Install npm packages running
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+$ npm install
+```
+<br/>
+
+
+##### Running the application
+
+- Create `.env.local` file with these variables
+
+```js
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+WEATHER_API=https://ai-weather-by-meteosource.p.rapidapi.com
+WEATHER_API_KEY=YOUR_API_KEY
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Run the proyect
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+$ npm run dev
+```
+<br/>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+##### Check prettier and eslint
+- Check prettier format
+```bash
+$ npm run prettier
+```
+<br/>
 
-## Learn More
+- Fix prettier format
+```bash
+$ npm run prettier:format
+```
+<br/>
 
-To learn more about Next.js, take a look at the following resources:
+- Fix eslint format
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+$ npm run eslint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Author
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# weather-app
+- Frontend Mentor - [@bauticutraro](https://github.com/bauticutraro)
