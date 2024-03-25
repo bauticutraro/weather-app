@@ -1,3 +1,10 @@
+import { Container } from '@mui/material'
+import HomeSearch from './_components/home-search'
+
 export default function Home() {
-  return <h1>Weather App</h1>;
+  return (
+    <Container maxWidth="sm">
+      <HomeSearch />
+    </Container>
+  )
 }
