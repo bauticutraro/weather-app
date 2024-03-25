@@ -17,7 +17,9 @@ const FavoritesList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const favoritesList = favorites.filter(favorite => favoritesIds.includes(favorite.placeId))
+  const favoritesList = favorites.filter(
+    favorite => favorite.placeId && favoritesIds.includes(favorite.placeId)
+  )
 
   if (loading) {
     return (
