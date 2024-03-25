@@ -21,7 +21,7 @@ function useDebounce<T extends string | number>(value: T, delay: number, default
     return () => {
       clearTimeout(timeoutId)
     }
-  }, [value, delay])
+  }, [value, delay, defaultValue])
 
   return [debouncedValue, isLoading]
 }

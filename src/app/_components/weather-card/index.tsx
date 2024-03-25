@@ -86,23 +86,27 @@ const WeatherCard = ({ currentWeather, toggleFavorite, isPlaceFavorite, isDetail
           </Typography>
 
           <WeatherActionsContainer>
+            {currentWeather.placeId && (
+              <WeatherActions
+                placeId={currentWeather.placeId}
+                isPlaceFavorite={isPlaceFavorite}
+                toggleFavorite={toggleFavorite}
+                isDetailPage={isDetailPage}
+              />
+            )}
+          </WeatherActionsContainer>
+        </Box>
+      </Box>
+      <WeatherIconContainer sx={{ width: 150, display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ ml: 'auto', mt: -2, mb: 3 }}>
+          {currentWeather.placeId && (
             <WeatherActions
               placeId={currentWeather.placeId}
               isPlaceFavorite={isPlaceFavorite}
               toggleFavorite={toggleFavorite}
               isDetailPage={isDetailPage}
             />
-          </WeatherActionsContainer>
-        </Box>
-      </Box>
-      <WeatherIconContainer sx={{ width: 150, display: 'flex', flexDirection: 'column' }}>
-        <Box sx={{ ml: 'auto', mt: -2, mb: 3 }}>
-          <WeatherActions
-            placeId={currentWeather.placeId}
-            isPlaceFavorite={isPlaceFavorite}
-            toggleFavorite={toggleFavorite}
-            isDetailPage={isDetailPage}
-          />
+          )}
         </Box>
 
         <Image src={icon} alt={summary} width={150} height={150} />
